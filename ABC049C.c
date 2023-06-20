@@ -92,7 +92,7 @@ int main(void){
                 break;
 
             default:
-                printf("NO\n");
+                flag = 1;
         }
 
         if(flag == 1 || (mark < 4 && mark > -1)){
