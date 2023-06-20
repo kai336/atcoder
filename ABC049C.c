@@ -49,7 +49,7 @@ int main(void){
                         }
                         //printf("%s\n", buff);
                         if(strncmp(buff, token[1], 6)==0){
-                            mark = mark - 6;
+                            mark = mark - 7;
 
                             /*for(i=0; i<7; i++){
                                 buff[i] = NULL;
