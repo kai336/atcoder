@@ -11,8 +11,7 @@ int main(void){
     scanf("%s", string);
     //("%s\n", string);
     char buff[10];
-    char buff2[10];
-    
+
     int len = strlen(string);
     int mark = len - 1;
 
@@ -23,78 +22,92 @@ int main(void){
 
     int i, flag;
     flag = 0;
-    switch(string[mark]){
-        case 'm':
-            for(i=0; i<5; i++){
-                buff[i] = string[mark - 4 + i];
-            }
-            printf("%s\n", buff);
-            if(strncmp(buff, token[0], 5)==0){
-                mark = mark - 5;
 
-                /*for(i=0; i<5; i++){
-                    buff[i] = NULL;
-                }*/
+    while(flag == 0){
+        switch(string[mark]){
+            case 'm':
+                for(i=0; i<5; i++){
+                    buff[i] = string[mark - 4 + i];
+                }
+                //printf("%s\n", buff);
+                if(strncmp(buff, token[0], 5)==0){
+                    mark = mark - 5;
 
-            }else flag = 1;
-            
-            break;
+                    /*for(i=0; i<5; i++){
+                        buff[i] = NULL;
+                    }*/
 
-        case 'r':
-            switch(string[mark - 2]){
-                case 'm':
-                    for(i=0; i<7; i++){
-                        buff[i] = string[mark - 6 + i];
-                    }
-                    printf("%s\n", buff);
-                    if(strncmp(buff, token[1], 6)==0){
-                        mark = mark - 6;
+                }else flag = 1;
+                
+                break;
 
-                        /*for(i=0; i<7; i++){
-                            buff[i] = NULL;
-                        }*/
+            case 'r':
+                switch(string[mark - 2]){
+                    case 'm':
+                        for(i=0; i<7; i++){
+                            buff[i] = string[mark - 6 + i];
+                        }
+                        //printf("%s\n", buff);
+                        if(strncmp(buff, token[1], 6)==0){
+                            mark = mark - 6;
 
-                    }else flag = 1;
+                            /*for(i=0; i<7; i++){
+                                buff[i] = NULL;
+                            }*/
 
-                    break;
+                        }else flag = 1;
 
-                case 's':
-                    for(i=0; i<6; i++){
-                        buff[i] = string[mark - 5 + i];
-                    }
-                    printf("%s\n", buff);
-                    if(strncmp(buff, token[3], 6)==0){
-                        mark = mark - 6;
+                        break;
 
-                        /*for(i=0; i<6; i++){
-                            buff[i] = NULL;
-                        }*/
+                    case 's':
+                        for(i=0; i<6; i++){
+                            buff[i] = string[mark - 5 + i];
+                        }
+                        //printf("%s\n", buff);
+                        if(strncmp(buff, token[3], 6)==0){
+                            mark = mark - 6;
 
-                    }else flag = 1;
+                            /*for(i=0; i<6; i++){
+                                buff[i] = NULL;
+                            }*/
 
-                    break;
-            }
+                        }else flag = 1;
 
-            break;
-            
-        case 'e':
-            for(i=0; i<5; i++){
-                buff[i] = string[mark - 4 + i];
-            }
-            printf("%s\n", buff);
-            if(strncmp(buff, token[2], 5)==0){
-                mark = mark - 5;
-            }else flag = 1;
+                        break;
+                    default:
+                        flag = 1;
+                }
 
-            break;
+                break;
+                
+            case 'e':
+                for(i=0; i<5; i++){
+                    buff[i] = string[mark - 4 + i];
+                }
+                //printf("%s\n", buff);
+                if(strncmp(buff, token[2], 5)==0){
+                    mark = mark - 5;
+                }else flag = 1;
 
-        default:
+                break;
+
+            default:
+                printf("NO\n");
+        }
+
+        if(flag == 1 || (mark < 4 && mark > -1)){
+            //printf("%d\n", mark);
             printf("NO\n");
+            break;
+        }
+
+        if(flag == 0 && mark == -1){
+            printf("YES\n");
+            break;
+        }
     }
 
-    if(flag == 1){
-        printf("NO\n");
-    }
+
 
     return 0;
 }
