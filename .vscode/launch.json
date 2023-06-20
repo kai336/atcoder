@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/murot/Desktop/atc",
-      "program": "c:/Users/murot/Desktop/atc/build/Debug/outDebug",
+      "cwd": "c:/Users/murot/Desktop/atcoder",
+      "program": "c:/Users/murot/Desktop/atcoder/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
