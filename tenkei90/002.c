@@ -9,7 +9,7 @@ bool check(int n, int *binary){
     score = 0;
 
     for(i=n-1; i>=0; i--){
-        switch(binary[i]){
+        /*switch(binary[i]){
             case 0:
                 score++;
                 printf("%d score++\n", i);
@@ -18,24 +18,36 @@ bool check(int n, int *binary){
                 score--;
                 printf("%d score--\n", i);
                 break;
+        }*/
+        if(binary[i] == 0){
+            score++;
+            //printf("%d score++\n", i);
+        }else{
+            score--;
+            //printf("%d score++\n", i);
         }
+        //printf("score %d\n", score);
         if(score < 0) return false;
     }
-
-    if(score = 0) return true;
+    //printf("score %d\n", score);
+    if(score == 0) return true;
+    else return false;
 }
 
 void braketprint(int n, int *binary){
     int i;
-    for(i=0; i<n; i++){
-        switch(binary[i]){
+    for(i=n-1; i>=0; i--){
+        /*switch(binary[i]){
             case 0:
                 putchar('(');
                 break;
             case 1:
                 putchar(')');
                 break;
-        }
+        }*/
+        
+        if(binary[i] == 0) putchar('(');
+        else putchar(')');
     }
     printf("\n");
 }
@@ -57,13 +69,13 @@ int main(void){
         for(j=0; j<n; j++){
             binary[i][j] = decimal % 2;
             decimal = decimal / 2;
-            printf("binary%d %d\n", i, binary[i][j]);
+            //printf("binary%d %d\n", i, binary[i][j]);
         }
     }
 
     //check
     for(i=0; i<num; i++){
-        printf("i %d\n", i);
+        //printf("i %d\n", i);
         if(check(n, binary[i])) braketprint(n, binary[i]);
     }
 
