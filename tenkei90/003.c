@@ -10,8 +10,14 @@ void *makeadjmatrix(int n, int graph[n-1][2], int adjmatrix[n][n]){
         index_start = graph[i][0] - 1;
         index_goal = graph[i][1] - 1;
         adjmatrix[index_start][index_goal] = 1;
+        adjmatrix[index_goal][index_start] = 1;
         //printf("adj+ %d %d\n", index_start, index_goal);
     }
+}
+
+int countscore(int n, int adjmatrix[n][n]){
+    int i, j;
+
 }
 
 int main(void){
@@ -44,7 +50,7 @@ int main(void){
 
     for(i=0; i<n; i++){
         for(j=0; j<n; j++){
-            printf("%d", adjmatrix[i][j]);
+            printf("%d ", adjmatrix[i][j]);
         }
         printf("\n");
     }
