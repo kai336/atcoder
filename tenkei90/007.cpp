@@ -8,7 +8,7 @@ int score(int n, long long b, long long *a){
     right = n - 1;
     center = n / 2;
     while(left != center){
-        cout << "b " << b << " l " << a[left] << " " << a[center] << " " << a[right] << " r" << endl;
+        //cout << "b " << b << " l " << a[left] << " " << a[center] << " " << a[right] << " r" << endl;
         if(b < a[center]){
             right = center;
             center = (left + center) / 2;
